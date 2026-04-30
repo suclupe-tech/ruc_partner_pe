@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vista del wizard -->
+    <record id="view_ruc_partner_wizard_form" model="ir.ui.view">
+        <field name="name">ruc.partner.wizard.form</field>
+        <field name="model">ruc.partner.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Buscar por DNI/RUC">
+                <group>
+                    <field name="document_number"/>
+                </group>
+
+                <footer>
+                    <button name="action_search_document"
+                            string="Consultar"
+                            type="object"
+                            class="btn-primary"/>
+
+                    <button string="Cancelar"
+                            special="cancel"/>
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Acción popup -->
+    <record id="action_ruc_partner_wizard" model="ir.actions.act_window">
+        <field name="name">Buscar DNI/RUC</field>
+        <field name="res_model">ruc.partner.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
