@@ -25,10 +25,10 @@
 
             <xpath expr="//sheet" position="before">
                 <header>
-                    <button name="%(action_ruc_partner_wizard)d"
-                    string="Buscar DNI/RUC"
-                    type="action"
-                    class="btn-primary oe_highlight"/>
+                    <button name="action_open_ruc_wizard"
+                            string="Buscar DNI/RUC"
+                            type="object"
+                            class="btn-primary oe_highlight"/>
                 </header>
             </xpath>
 

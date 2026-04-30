@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ruc_partner_pe.PartnerListButton"
+        t-inherit="point_of_sale.PartnerList"
+        t-inherit-mode="extension">
+
+        <xpath expr="//button[contains(@class, 'btn-primary')]" position="after">
+            <button class="btn btn-success btn-lg lh-lg me-2"
+                    t-on-click="() => this.onClickRucSearch()">
+                Buscar DNI/RUC
+            </button>
+        </xpath>
+
+    </t>
+
+</templates>

@@ -52,3 +52,12 @@ class ResPartner(models.Model):
 
         except Exception as e:
             raise UserError(f"Error: {str(e)}")
+
+    def action_open_ruc_wizard(self):
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Buscar DNI/RUC",
+            "res_model": "ruc.partner.wizard",
+            "view_mode": "form",
+            "target": "new",
+        }
