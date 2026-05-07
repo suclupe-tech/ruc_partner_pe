@@ -88,17 +88,30 @@ class ResPartner(models.Model):
                 self.street = direccion
                 self.company_type = "company"
 
-    def create(self, vals):
-        vat = vals.get("vat")
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            vat = vals.get("vat")
 
         if vat:
-            existing = self.search([("vat", "=", vat)], limit=1)
+            vat = vat.strip()
+
+            existing = self.search(
+                [
+                    ("vat", "=", vat),
+                    ("active", "in", [True, False]),
+                ],
+                limit=1,
+            )
+
             if existing:
                 raise ValidationError(
                     f"Ya existe un cliente con este documento: {existing.name}"
                 )
 
-        return super().create(vals)
+            vals["vat"] = vat
+
+        return super().create(vals_list)
 
     def write(self, vals):
         vat = vals.get("vat")
