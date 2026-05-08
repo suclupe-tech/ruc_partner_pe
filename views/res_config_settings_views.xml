@@ -11,7 +11,7 @@
                 <app data-string="Consulta RUC Perú" string="Consulta RUC Perú" name="ruc_partner_pe">
                     <block title="API de consulta RUC">
                         <setting string="Token API RUC">
-                            <field name="ruc_api_token" password="True"/>
+                            <field name="ruc_api_token" password="1"/>
                         </setting>
                     </block>
                 </app>
