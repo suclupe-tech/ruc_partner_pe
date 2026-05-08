@@ -93,23 +93,23 @@ class ResPartner(models.Model):
         for vals in vals_list:
             vat = vals.get("vat")
 
-        if vat:
-            vat = vat.strip()
+            if vat:
+                vat = vat.strip()
 
-            existing = self.search(
-                [
-                    ("vat", "=", vat),
-                    ("active", "in", [True, False]),
-                ],
-                limit=1,
-            )
-
-            if existing:
-                raise ValidationError(
-                    f"Ya existe un cliente con este documento: {existing.name}"
+                existing = self.search(
+                    [
+                        ("vat", "=", vat),
+                        ("active", "in", [True, False]),
+                    ],
+                    limit=1,
                 )
 
-            vals["vat"] = vat
+                if existing:
+                    raise ValidationError(
+                        f"Ya existe un cliente con este documento: {existing.name}"
+                    )
+
+                vals["vat"] = vat
 
         return super().create(vals_list)
 
